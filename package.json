@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": ""
+    "dev": "nodemon --exec babel-node server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/kamogawa/insta-backend-23/issues"
   },
-  "homepage": "https://github.com/kamogawa/insta-backend-23#readme"
+  "homepage": "https://github.com/kamogawa/insta-backend-23#readme",
+  "dependencies": {
+    "@prisma/client": "4.10.1",
+    "apollo-server": "^2.25.2",
+    "graphql": "^15.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.10.1"
+  },
+  "type": "module"
 }

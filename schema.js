@@ -9,9 +9,7 @@ import {
 // typeDefs를 불러옴, 패턴 지정 가능
 const loadedTypes = loadFilesSync(`${__dirname}/**/*.typeDefs.js`);
 // Resolver를 불러옴
-const loadedResolvers = loadFilesSync(
-  `${__dirname}/**/*.{queries,mutations}.js`
-);
+const loadedResolvers = loadFilesSync(`${__dirname}/**/*.resolvers.js`);
 
 const typeDefs = mergeTypeDefs(loadedTypes);
 const resolvers = mergeResolvers(loadedResolvers);

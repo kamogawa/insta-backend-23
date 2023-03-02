@@ -1,12 +1,20 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import client from "../../client";
 
 export default {
   Mutation: {
     editProfile: async (
       _,
-      { firstName, lastName, username, email, password: newPassword }
+      { firstName, lastName, username, email, password: newPassword },
+      { loggedInUser }
     ) => {
+      if (!loggedInUser) {
+        return {
+          ok: false,
+          error: "ユーザー認証失敗",
+        };
+      }
       let hashedPassword = null;
       // 비밀번호가 포함되 있는경우 해쉬함수로 암호화
       if (newPassword) {
@@ -15,7 +23,7 @@ export default {
       // null, undefined이면 갱신하지 않음
       const updatedUser = await client.user.update({
         where: {
-          id: 7,
+          id: loggedInUser.id,
         },
         data: {
           firstName,
